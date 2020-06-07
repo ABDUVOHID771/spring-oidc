@@ -1,0 +1,43 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-secure?useSSL=false&useUnicode=yes
+    username: root
+    password: Aristo070
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1074279232640-hhkrbohe66srcpgln36t3nmor14i9pmd.apps.googleusercontent.com
+            client-secret: 1w3E5Z6DdReOI24zpBUg4WtC
+            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - openid
+              - profile
+              - email
+              - address
+              - phone
+          github:
+            client-id: 016a118732d2eb814a7f
+            client-secret: 2c3be608e21900696bfd7516579439dbcf25022a
+            client-name: Github
+          facebook:
+            client-id: 2493218844264483
+            client-secret: 6305a21260143fb47d6271d98b54f435
+            client-name: Facebook
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://www.googleapis.com/oauth2/v4/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+            jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+  mvc:
+    static-path-pattern: /static/**

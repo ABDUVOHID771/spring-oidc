@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        .logoutbtn {
+            background-color: #55ACEE;
+            color: white;
+            padding: 16px 20px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+            width: 10%;
+            float: right;
+            opacity: 0.9;
+        }
+        .logoutbtn:hover {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body style="background-color: #3B5998;margin:auto;width: 70%;padding-top: 2%">
+<h1 style="text-align: center;color: #ffffff">Welcome ...</h1>
+<div style="background-color: azure;padding:5px">
+    <hr>
+    <h2 style="text-align: center">User Attributes:</h2>
+    <hr>
+    <h3> Username : <span th:text="${username}"></span></h3>
+    <h4>Client name : <span th:text="${clientName}"></span></h4>
+    <h4>Authorities : <span th:text="${authorities}"></span></h4>
+    <ul>
+        <li th:each="userAttr : ${userAttributes}">
+            <span style="font-weight:bold" th:text="${userAttr.key}"></span>: <span th:text="${userAttr.value}"></span>
+        </li>
+    </ul>
+    <form th:action="@{/logout}" method="POST">
+        <button class="logoutbtn" value="Logout">Logout</button>
+    </form>
+</div>
+</body>
+</html>

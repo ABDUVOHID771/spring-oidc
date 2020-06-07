@@ -1,0 +1,14 @@
+package com.example.springoidc.repo;
+
+import com.example.springoidc.dao.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepo extends JpaRepository<User, Long> {
+
+    User findByUsername(String username);
+
+    User findByEmail(String email);
+
+}

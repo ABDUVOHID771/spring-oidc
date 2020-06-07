@@ -1,0 +1,77 @@
+<Html>
+<head>
+    <title>
+        Registration Page
+    </title>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Calibri, Helvetica, sans-serif;
+            background-color: #3B5998;
+        }
+
+        .container {
+            padding: 50px;
+            background-color: azure;
+        }
+
+        input[type=text], input[type=password], textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #cccccc;
+            outline: none;
+        }
+
+        div {
+            width: 40%;
+            margin: auto;
+        }
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        .confirmbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .confirmbtn:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/forget}" th:object="${user}" method="POST">
+    <div class="container">
+        <h1> Confirmation your email </h1>
+        <hr>
+
+        <label>Email</label>
+        <input type="text" th:field="*{email}" placeholder="Enter your email" name="email" required>
+
+        <button type="submit" class="confirmbtn">Confirm</button>
+    </div>
+</form>
+</body>
+</html>
